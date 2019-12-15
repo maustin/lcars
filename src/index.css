@@ -1,13 +1,81 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Big Shoulders Text', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: black;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.lcars-header {
+
+}
+
+.lcars-header-background {
+	z-index: 1;
+	width: 100%;
+	height: 150px;
+	position: relative;
+	display: grid;
+	grid-template-columns: 150px 150px auto 30px 150px auto;
+	grid-template-rows: auto 73.5px 16.5px;
+}
+
+.lcars-left-column-block {
+	grid-column: 1 / 1;
+	grid-row: 1;
+	display: flex;
+
+}
+
+.elbow-left-bottom-container {
+	grid-row: 2 / 3;
+	grid-column: 1 / 2;
+}
+
+.elbow-left-bottom {
+	position: absolute;
+	width: 300px;
+	height: 90px;
+}
+
+.lcars-header-body {
+	z-index: 2;
+	border: 1px solid green;
+	right: -20%;
+	top: -150px;
+	width: 80%;
+	height: 125px;
+	position: relative;
+	border: 1px solid green;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	align-items: flex-end;
+}
+
+.lcars-header-body-nav {
+	display: flex;
+}
+
+.lcars-header-body-nav-buttons {
+
+}
+
+.lcars-pill-button {
+	-webkit-border-top-left-radius: 15px;
+	-moz-border-radius-topleft: 15px;
+	border-top-left-radius: 15px;
+	-webkit-border-top-right-radius: 15px;
+	-moz-border-radius-topright: 15px;
+	border-top-right-radius: 15px;
+	-webkit-border-bottom-right-radius: 15px;
+	-moz-border-radius-bottomright: 15px;
+	border-bottom-right-radius: 15px;
+	-webkit-border-bottom-left-radius: 15px;
+	-moz-border-radius-bottomleft: 15px;
+	border-bottom-left-radius: 15px;
+	height: 30px;
+	width: 100px;
 }
