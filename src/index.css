@@ -11,6 +11,8 @@ body {
   background: black;
   max-width: 900px;
   margin: 0 auto;
+  height: 100%;
+  padding: 0;
 }
 
 .lcars-header {
@@ -27,12 +29,6 @@ body {
 	grid-template-rows: auto 74px 16px;
 }
 
-.lcars-left-column-block {
-	grid-column: 1 / 1;
-	grid-row: 1;
-	display: flex;
-}
-
 .elbow-left-bottom {
 	position: absolute;
 	width: 300px;
@@ -40,7 +36,7 @@ body {
 }
 
 .lcars-header-body {
-	z-index: 1;
+	z-index: 2;
 	border: 1px solid green;
 	position: relative;
 	right: -20%;
@@ -53,6 +49,18 @@ body {
 	align-items: flex-end;
 }
 
+.lcars-content-body {
+	z-index: 2;
+	border: 1px solid red;
+	position: absolute;
+	right: 0;
+	top: 0;
+	bottom: 100%;
+	width: 80%;
+	height: 600px;
+	margin-top: 21px;
+}
+
 .lcars-header-body-title-text {
 	font-weight: 900;
 	font-size: 40px;
@@ -63,14 +71,13 @@ body {
 	flex-wrap: wrap;
 	justify-content: flex-end;
 	align-items: flex-end;
-	border: 1px solid blue;
+	/*border: 1px solid blue;*/
 	width: 320px;
 }
 
 .lcars-content {
-	width: 100%;
-	height: 100%;
-	border: 1px solid green;
+	position: relative;
+	/*border: 1px solid green;*/
 }
 
 .elbow-left-top {
@@ -83,9 +90,10 @@ body {
 	height: 100%;
 	position: relative;
 	display: grid;
+	overflow: auto;
 	grid-template-columns: 150px 150px auto 30px 150px auto;
-	grid-template-rows: 16px 74px auto auto;
-	border: 1px solid blue;
+	grid-template-rows: 16px 74px auto 50px auto;
+	/*border: 1px solid blue;*/
 }
 
 .lcars-content-nav {
@@ -93,6 +101,42 @@ body {
 	flex-direction: column;
 	grid-column: 1;
 	grid-row: 3;
+}
+
+
+
+.lcars-block {
+	position: relative;
+}
+
+.lcars-block-text {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	font-weight: 700;
+	padding-bottom: 5px;
+	padding-right: 15px;
+}
+
+.lcars-block-text-top {
+	top: 0;
+	padding-top: 5px;
+}
+
+.lcars-navblock {
+	position: relative;
+	margin-top: 5px;
+	height: 70px;
+}
+
+.lcars-navblock-text {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	font-size: 20px;
+	font-weight: 900;
+	padding-bottom: 5px;
+	padding-right: 15px;
 }
 
 .lcars-pill-button {
@@ -119,36 +163,7 @@ body {
 	bottom: 0;
 	right: 0;
 	font-size: 20px;
-	font-weight: 700;
-	padding-bottom: 5px;
-	padding-right: 15px;
-}
-
-.lcars-block {
-	position: relative;
-}
-
-.lcars-block-text {
-	position: absolute;
-	bottom: 0;
-	right: 0;
-	font-weight: 700;
-	padding-bottom: 5px;
-	padding-right: 15px;
-}
-
-.lcars-navblock {
-	position: relative;
-	margin-top: 5px;
-	height: 70px;
-}
-
-.lcars-navblock-text {
-	position: absolute;
-	bottom: 0;
-	right: 0;
-	font-size: 20px;
-	font-weight: 700;
+	font-weight: 900;
 	padding-bottom: 5px;
 	padding-right: 15px;
 }

@@ -4,7 +4,7 @@ import LCARSContent from './containers/LCARSContent';
 
 function App() {
   return (
-    <div>
+    <div className='app'>
       <LCARSHeader />
       <LCARSContent />
     </div>

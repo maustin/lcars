@@ -3,7 +3,7 @@ import React from 'react';
 class LCARSContentBody extends React.Component {
 	render() {
 		return (
-			<div>
+			<div className='lcars-content-body'>
 			</div>
 		)
 	}

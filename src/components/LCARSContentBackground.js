@@ -15,21 +15,15 @@ class LCARSContentBackground extends React.Component {
 				<Block row='1/2' column='6/7' color={LCARSColors.PINK} blockStyle='padLeft' />
 				<div className='lcars-content-nav'>
 					<NavBlock text='CHARACTERS' color={LCARSColors.BEIGE} blockStyle='' />
-					<NavBlock text='SHIPS' color={LCARSColors.PEACH} blockStyle='' />
-					<NavBlock text='SPECIES' color={LCARSColors.ORANGE} blockStyle='' />
-					<NavBlock text='RANKS' color={LCARSColors.PURPLE} blockStyle='' />
+					<NavBlock text='SHIPS' color={LCARSColors.ORANGE} blockStyle='' />
+					<NavBlock text='SPECIES' color={LCARSColors.PURPLE} blockStyle='' />
+					<NavBlock text='RANKS' color={LCARSColors.PEACH} blockStyle='' />
 				</div>
-				<Block row='4/5' column='1/2' color={LCARSColors.ORANGE} />
+				<Block text='03-041980' row='4/5' column='1/2' color={LCARSColors.ORANGE} blockStyle='padTop' />
+				<Block text='86-753090' row='5/6' column='1/2' color={LCARSColors.ORANGE} blockStyle='padTop minH200 textTop' />
 			</div>
 		)
 	}
 }
-/*
-<Block text='CHARACTERS' />
-					<Block text='SHIP' />
-					<Block text='SPECIES' />
-					<Block text='RANKS' />
-					<h3 style={{color: 'red'}}>DERP</h3>
-*/
 
 export default LCARSContentBackground;
