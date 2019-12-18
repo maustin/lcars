@@ -60,6 +60,7 @@ body {
 	width: 80%;
 	height: 600px;
 	margin-top: 21px;
+	/*overflow: auto;*/
 }
 
 .lcars-header-body-title-text {
@@ -175,4 +176,64 @@ body {
 	padding-bottom: 5px;
 	padding-right: 15px;
 	user-select: none;
+}
+
+.character-page {
+	height: 100%;
+	overflow: hidden;
+}
+
+.character-page-header {
+	text-align: right;
+	font-size: 28px;
+	font-weight: 900;
+	color: #FFCC99;
+}
+
+.character-page-scrollview {
+	height: 100%;
+	width: 100%;
+	border: 1px solid white;
+	overflow: auto;
+}
+
+.character-summary {
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+	margin-bottom: 10px;
+}
+
+.character-summary-image {
+	width: 150px;
+	height: 200px;
+	background-color: #440044;
+	margin-right: 5px;
+}
+
+.character-summary-details-container {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+}
+
+.character-summary-details-header {
+	width: 100%;
+	/*height: 20px;*/
+	background-color: #9999FF;
+	text-align: right;
+	/*align-content: center;*/
+	padding-top: 5px;
+}
+
+.character-summary-details-header-text {
+	font-size: 20px;
+	color: black;
+	margin-bottom: 5px;
+	margin-right: 10px;
+}
+
+.character-summary-details-body {
+	width: 100%;
+	color: yellow;
 }

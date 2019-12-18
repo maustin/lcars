@@ -1,5 +1,6 @@
 import React from 'react';
 import CharacterModel from '../../models/CharacterModel';
+import CharacterSummary from './CharacterSummary';
 import CharacterDetail from './CharacterDetail';
 
 class CharactersPage extends React.Component {
@@ -19,18 +20,27 @@ class CharactersPage extends React.Component {
 	}
 
 	render() {
+
+		// Two states: all, single
 		let characters = this.state.characters.map(item =>
-			<p>{item.name}</p>
+			<CharacterSummary key={item.id} data={item} />
 		);
 
 
 		return (
-			<div>
-				<h1 style={{ color: 'red' }}>Characters</h1>
-				{ characters }
+			<div className='character-page'>
+				<div className='character-page-header'>CHARACTERS</div>
+				<div className='character-page-scrollview'>
+					{ characters }
+				</div>
 			</div>
 		)
 	}
 }
+/*
+<div className='character-page-scrollview'>
+					{ characters }
+				</div>
+*/
 
 export default CharactersPage;
