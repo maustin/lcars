@@ -7,7 +7,6 @@ import NavBlock from './NavBlock';
 class LCARSContentBackground extends React.Component {
 	render() {
 		let navTargets = this.props.navTargets;
-		let navHandler = this.props.navHandler;
 
 		return (
 			<div className='lcars-content-background'>
@@ -18,22 +17,18 @@ class LCARSContentBackground extends React.Component {
 				<Block row='1/2' column='6/7' color={LCARSColors.PINK} blockStyle='padLeft' />
 				<div className='lcars-content-nav'>
 					<NavBlock
-						clickHandler={navHandler}
 						navTarget={navTargets.characters}
 						text='CHARACTERS'
 						color={LCARSColors.BEIGE} />
 					<NavBlock
-						clickHandler={navHandler}
 						navTarget={navTargets.ships}
 						text='SHIPS'
 						color={LCARSColors.ORANGE} />
 					<NavBlock
-						clickHandler={navHandler}
 						navTarget={navTargets.species}
 						text='SPECIES'
 						color={LCARSColors.PURPLE} />
 					<NavBlock
-						clickHandler={navHandler}
 						navTarget={navTargets.ranks}
 						text='RANKS'
 						color={LCARSColors.PEACH} />

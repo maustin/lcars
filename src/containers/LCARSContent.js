@@ -10,14 +10,10 @@ class LCARSContent extends React.Component {
 		ranks: '/ranks'
 	};
 
-	handleNavClick = target => {
-
-	}
-
 	render() {
 		return (
 			<div className='lcars-content'>
-				<LCARSContentBackground navHandler={this.handleNavClick} navTargets={this.navTargets} />
+				<LCARSContentBackground navTargets={this.navTargets} />
 				<LCARSContentBody />
 			</div>
 		)

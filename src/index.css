@@ -37,7 +37,6 @@ body {
 
 .lcars-header-body {
 	z-index: 2;
-	border: 1px solid green;
 	position: relative;
 	right: -20%;
 	bottom: 100%;
@@ -47,6 +46,7 @@ body {
 	flex-direction: column;
 	justify-content: flex-end;
 	align-items: flex-end;
+	/*border: 1px solid green;*/
 }
 
 .lcars-content-body {
@@ -104,7 +104,6 @@ body {
 }
 
 
-
 .lcars-block {
 	position: relative;
 }
@@ -139,6 +138,7 @@ body {
 	font-weight: 900;
 	padding-bottom: 5px;
 	padding-right: 15px;
+	user-select: none;
 }
 
 .lcars-pill-button {
@@ -158,6 +158,7 @@ body {
 	width: 150px;
 	position: relative;
 	margin: 3px;
+	cursor: pointer;
 }
 
 .lcars-pill-button-text {
@@ -168,4 +169,5 @@ body {
 	font-weight: 900;
 	padding-bottom: 5px;
 	padding-right: 15px;
+	user-select: none;
 }

@@ -1,7 +1,21 @@
 import React from 'react';
+import { Redirect } from 'react-router';
 
 class NavBlock extends React.Component {
+	state = {
+		redirect: false
+	};
+
+	onClick = event => {
+		this.setState({ redirect: true });
+	}
+
 	render() {
+		if (this.state.redirect) {
+			this.setState({ redirect: false });
+			return <Redirect push to={this.props.navTarget} />
+		}
+		
 		let style = {
 			'background': this.props.color || 'gray'
 		};
@@ -12,7 +26,7 @@ class NavBlock extends React.Component {
 		}
 
 		return (
-			<div className='lcars-navblock' style={style}>
+			<div className='lcars-navblock' style={style} onClick={this.onClick} >
 				{text}
 			</div>
 		)
