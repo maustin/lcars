@@ -9,6 +9,11 @@ class Block extends React.Component {
 			'background': this.props.color || 'gray'
 		};
 
+		let text;
+			if (this.props.text) {
+				text = <span className='lcars-block-text'>{this.props.text}</span>
+			}
+
 		if (this.props.blockStyle) {
 			if (this.props.blockStyle.includes('padLeft')) {
 				style['marginLeft'] = '5px';
@@ -25,7 +30,9 @@ class Block extends React.Component {
 		}
 
 		return (
-			<div style={style} />
+			<div className='lcars-block' style={style}>
+				{text}
+			</div>
 		)
 	}
 }

@@ -1,3 +1,8 @@
+/*@font-face {
+	font-family: 'stfont';
+	src: url('./fonts/Context_Ultra_Condensed.ttf');
+}*/
+
 body {
   margin: 0;
   font-family: 'Big Shoulders Text', sans-serif;
@@ -9,13 +14,12 @@ body {
 }
 
 .lcars-header {
-
+	width: 100%;
+	height: 180px;
 }
 
 .lcars-header-background {
-	z-index: 1;
-	width: 100%;
-	height: 150px;
+	height: 100%;
 	position: relative;
 	display: grid;
 	grid-template-columns: 150px 150px auto 30px 150px auto;
@@ -26,7 +30,6 @@ body {
 	grid-column: 1 / 1;
 	grid-row: 1;
 	display: flex;
-
 }
 
 .elbow-left-bottom-container {
@@ -41,18 +44,22 @@ body {
 }
 
 .lcars-header-body {
-	z-index: 2;
+	z-index: 1;
 	border: 1px solid green;
-	right: -20%;
-	top: -150px;
-	width: 80%;
-	height: 125px;
 	position: relative;
-	border: 1px solid green;
+	right: -20%;
+	bottom: 100%;
+	width: 80%;
+	height: 160px;
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-end;
 	align-items: flex-end;
+}
+
+.lcars-header-body-title-text {
+	font-weight: 900;
+	font-size: 40px;
 }
 
 .lcars-header-body-nav {
@@ -62,7 +69,6 @@ body {
 	align-items: flex-end;
 	border: 1px solid blue;
 	width: 320px;
-	gap: 5px;
 }
 
 .lcars-pill-button {
@@ -80,9 +86,29 @@ body {
 	border-bottom-left-radius: 20px;
 	height: 40px;
 	width: 150px;
+	position: relative;
+	margin: 3px;
 }
 
 .lcars-pill-button-text {
-	z-index: 2;
 	position: absolute;
+	bottom: 0;
+	right: 0;
+	font-size: 20px;
+	font-weight: 700;
+	padding-bottom: 5px;
+	padding-right: 15px;
+}
+
+.lcars-block {
+	position: relative;
+}
+
+.lcars-block-text {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	font-weight: 700;
+	padding-bottom: 5px;
+	padding-right: 15px;
 }
