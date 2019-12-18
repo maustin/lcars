@@ -1,9 +1,9 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-import CharactersPage from './CharactersPage';
-import ShipsPage from './ShipsPage';
-import SpeciesPage from './SpeciesPage';
-import RanksPage from './RanksPage';
+import CharactersPage from './pages/CharactersPage';
+import ShipsPage from './pages/ShipsPage';
+import SpeciesPage from './pages/SpeciesPage';
+import RanksPage from './pages/RanksPage';
 
 class LCARSContentBody extends React.Component {
 	render() {
