@@ -6,6 +6,9 @@ import NavBlock from './NavBlock';
 
 class LCARSContentBackground extends React.Component {
 	render() {
+		let navTargets = this.props.navTargets;
+		let navHandler = this.props.navHandler;
+
 		return (
 			<div className='lcars-content-background'>
 				<ElbowLeftTop row='1/2' column='1/2' color={LCARSColors.REDDISH} />
@@ -14,10 +17,26 @@ class LCARSContentBackground extends React.Component {
 				<Block row='1/2' column='5/6' color={LCARSColors.ORANGE} blockStyle='padLeft halfheight' />
 				<Block row='1/2' column='6/7' color={LCARSColors.PINK} blockStyle='padLeft' />
 				<div className='lcars-content-nav'>
-					<NavBlock text='CHARACTERS' color={LCARSColors.BEIGE} blockStyle='' />
-					<NavBlock text='SHIPS' color={LCARSColors.ORANGE} blockStyle='' />
-					<NavBlock text='SPECIES' color={LCARSColors.PURPLE} blockStyle='' />
-					<NavBlock text='RANKS' color={LCARSColors.PEACH} blockStyle='' />
+					<NavBlock
+						clickHandler={navHandler}
+						navTarget={navTargets.characters}
+						text='CHARACTERS'
+						color={LCARSColors.BEIGE} />
+					<NavBlock
+						clickHandler={navHandler}
+						navTarget={navTargets.ships}
+						text='SHIPS'
+						color={LCARSColors.ORANGE} />
+					<NavBlock
+						clickHandler={navHandler}
+						navTarget={navTargets.species}
+						text='SPECIES'
+						color={LCARSColors.PURPLE} />
+					<NavBlock
+						clickHandler={navHandler}
+						navTarget={navTargets.ranks}
+						text='RANKS'
+						color={LCARSColors.PEACH} />
 				</div>
 				<Block text='03-041980' row='4/5' column='1/2' color={LCARSColors.ORANGE} blockStyle='padTop' />
 				<Block text='86-753090' row='5/6' column='1/2' color={LCARSColors.ORANGE} blockStyle='padTop minH200 textTop' />

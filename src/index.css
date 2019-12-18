@@ -127,6 +127,8 @@ body {
 	position: relative;
 	margin-top: 5px;
 	height: 70px;
+	cursor: pointer;
+	user-select: none;
 }
 
 .lcars-navblock-text {
