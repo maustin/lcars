@@ -57,25 +57,32 @@ body {
 
 .lcars-header-body-nav {
 	display: flex;
-}
-
-.lcars-header-body-nav-buttons {
-
+	flex-wrap: wrap;
+	justify-content: flex-end;
+	align-items: flex-end;
+	border: 1px solid blue;
+	width: 320px;
+	gap: 5px;
 }
 
 .lcars-pill-button {
-	-webkit-border-top-left-radius: 15px;
-	-moz-border-radius-topleft: 15px;
-	border-top-left-radius: 15px;
-	-webkit-border-top-right-radius: 15px;
-	-moz-border-radius-topright: 15px;
-	border-top-right-radius: 15px;
-	-webkit-border-bottom-right-radius: 15px;
-	-moz-border-radius-bottomright: 15px;
-	border-bottom-right-radius: 15px;
-	-webkit-border-bottom-left-radius: 15px;
-	-moz-border-radius-bottomleft: 15px;
-	border-bottom-left-radius: 15px;
-	height: 30px;
-	width: 100px;
+	-webkit-border-top-left-radius: 20px;
+	-moz-border-radius-topleft: 20px;
+	border-top-left-radius: 20px;
+	-webkit-border-top-right-radius: 20px;
+	-moz-border-radius-topright: 20px;
+	border-top-right-radius: 20px;
+	-webkit-border-bottom-right-radius: 20px;
+	-moz-border-radius-bottomright: 20px;
+	border-bottom-right-radius: 20px;
+	-webkit-border-bottom-left-radius: 20px;
+	-moz-border-radius-bottomleft: 20px;
+	border-bottom-left-radius: 20px;
+	height: 40px;
+	width: 150px;
+}
+
+.lcars-pill-button-text {
+	z-index: 2;
+	position: absolute;
 }
