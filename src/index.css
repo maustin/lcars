@@ -16,6 +16,7 @@ body {
 .lcars-header {
 	width: 100%;
 	height: 180px;
+	margin-bottom: 5px;
 }
 
 .lcars-header-background {
@@ -23,18 +24,13 @@ body {
 	position: relative;
 	display: grid;
 	grid-template-columns: 150px 150px auto 30px 150px auto;
-	grid-template-rows: auto 73.5px 16.5px;
+	grid-template-rows: auto 74px 16px;
 }
 
 .lcars-left-column-block {
 	grid-column: 1 / 1;
 	grid-row: 1;
 	display: flex;
-}
-
-.elbow-left-bottom-container {
-	grid-row: 2 / 3;
-	grid-column: 1 / 2;
 }
 
 .elbow-left-bottom {
@@ -69,6 +65,34 @@ body {
 	align-items: flex-end;
 	border: 1px solid blue;
 	width: 320px;
+}
+
+.lcars-content {
+	width: 100%;
+	height: 100%;
+	border: 1px solid green;
+}
+
+.elbow-left-top {
+	position: absolute;
+	width: 300px;
+	height: 90px;
+}
+
+.lcars-content-background {
+	height: 100%;
+	position: relative;
+	display: grid;
+	grid-template-columns: 150px 150px auto 30px 150px auto;
+	grid-template-rows: 16px 74px auto auto;
+	border: 1px solid blue;
+}
+
+.lcars-content-nav {
+	display: flex;
+	flex-direction: column;
+	grid-column: 1;
+	grid-row: 3;
 }
 
 .lcars-pill-button {
@@ -108,6 +132,22 @@ body {
 	position: absolute;
 	bottom: 0;
 	right: 0;
+	font-weight: 700;
+	padding-bottom: 5px;
+	padding-right: 15px;
+}
+
+.lcars-navblock {
+	position: relative;
+	margin-top: 5px;
+	height: 70px;
+}
+
+.lcars-navblock-text {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	font-size: 20px;
 	font-weight: 700;
 	padding-bottom: 5px;
 	padding-right: 15px;

@@ -1,7 +1,7 @@
 import React from 'react'
+import * as LCARSColors from '../utils/LCARSColors';
 import ElbowLeftBottom from './ElbowLeftBottom';
 import Block from './Block';
-import * as LCARSColors from '../utils/LCARSColors';
 
 class LCARSHeaderBackground extends React.Component {
 	render() {
@@ -13,7 +13,7 @@ class LCARSHeaderBackground extends React.Component {
 					text='LCARS SEI-6'
 					color={LCARSColors.PINK}
 					blockStyle='padBottom' />
-				<ElbowLeftBottom color={LCARSColors.PURPLE} />
+				<ElbowLeftBottom row='2/3' column='1/2' color={LCARSColors.PURPLE} />
 				<Block row='3/3' column='3/4' color={LCARSColors.PURPLE} />
 				<Block row='3/3' column='4/5' color={LCARSColors.ORANGE} blockStyle='padLeft square' />
 				<Block row='3/3' column='5/6' color={LCARSColors.PINK} blockStyle='padLeft' />
