@@ -52,13 +52,13 @@ body {
 
 .lcars-content-body {
 	z-index: 2;
-	border: 1px solid red;
+	/*border: 1px solid red;*/
 	position: absolute;
 	right: 0;
 	top: 0;
 	bottom: 100%;
 	width: 80%;
-	height: 600px;
+	height: 610px;
 	margin-top: 21px;
 	/*overflow: auto;*/
 }
@@ -193,7 +193,7 @@ body {
 .character-page-scrollview {
 	height: 100%;
 	width: 100%;
-	border: 1px solid white;
+	/*border: 1px solid white;*/
 	overflow: auto;
 }
 
@@ -202,13 +202,17 @@ body {
 	flex-direction: row;
 	width: 100%;
 	margin-bottom: 10px;
+	cursor: pointer;
 }
 
 .character-summary-image {
+	min-width: 150px;
+	min-height: 200px;
 	width: 150px;
 	height: 200px;
-	background-color: #440044;
+	object-fit: cover;
 	margin-right: 5px;
+	background-color: #111111;
 }
 
 .character-summary-details-container {
@@ -219,10 +223,8 @@ body {
 
 .character-summary-details-header {
 	width: 100%;
-	/*height: 20px;*/
 	background-color: #9999FF;
 	text-align: right;
-	/*align-content: center;*/
 	padding-top: 5px;
 }
 
@@ -235,5 +237,17 @@ body {
 
 .character-summary-details-body {
 	width: 100%;
-	color: yellow;
+	display: flex;
+	flex-direction: column;
+}
+
+.character-summary-details-body-prefix {
+	color: #d6c71c;
+	font-size: 16px;
+	margin-right: 10px;
+}
+
+.character-summary-details-body-text {
+	color: #fae607;
+	font-size: 20px;
 }

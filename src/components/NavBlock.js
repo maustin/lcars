@@ -1,21 +1,12 @@
 import React from 'react';
-import { Redirect } from 'react-router';
+import { withRouter } from 'react-router-dom';
 
 class NavBlock extends React.Component {
-	state = {
-		redirect: false
-	};
-
 	onClick = event => {
-		this.setState({ redirect: true });
+		this.props.history.push(this.props.navTarget);
 	}
 
 	render() {
-		if (this.state.redirect) {
-			this.setState({ redirect: false });
-			return <Redirect push to={this.props.navTarget} />
-		}
-		
 		let style = {
 			'background': this.props.color || 'gray'
 		};
@@ -33,4 +24,4 @@ class NavBlock extends React.Component {
 	}
 }
 
-export default NavBlock;
+export default withRouter(NavBlock);
