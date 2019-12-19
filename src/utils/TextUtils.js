@@ -24,4 +24,17 @@ function getNameLastFirst(name) {
 	return last + ', ' + first;
 }
 
-export { getGenderString, getNameLastFirst };
+function getRandomNumberFill(format) {
+	let str = "";
+
+	for (let i = 0; i < format.length; i++) {
+		if (format.charAt(i) == 'x')
+			str += Math.floor(Math.random() * 10).toString();
+		else
+			str += format.charAt(i);
+	}
+
+	return str;
+}
+
+export { getGenderString, getNameLastFirst, getRandomNumberFill };

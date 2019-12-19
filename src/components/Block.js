@@ -11,6 +11,7 @@ class Block extends React.Component {
 		let textStyles = 'lcars-block-text';
 
 		if (this.props.blockStyle) {
+			// TODO: make this take dynamic values instead of hard-coding
 			if (this.props.blockStyle.includes('padLeft')) {
 				style['marginLeft'] = '5px';
 			}
@@ -19,6 +20,12 @@ class Block extends React.Component {
 			}
 			if (this.props.blockStyle.includes('padTop')) {
 				style['marginTop'] = '5px';
+			}
+			if (this.props.blockStyle.includes('pad2xTop')) {
+				style['marginTop'] = '10px';
+			}
+			if (this.props.blockStyle.includes('padRight')) {
+				style['marginRight'] = '5px';
 			}
 			if (this.props.blockStyle.includes('square')) {
 				//
