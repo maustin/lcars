@@ -6,11 +6,11 @@
 ### Table of Contents
 #### Front-end
 - [Wireframes](#wireframes)
-- [Technologies Used](#fe-tech)
-- [Next Steps](#fe-next)
+- [Technologies Used](#tech)
+- [Next Steps](#next)
 
 #### Back-end
-- [Back-end README]()
+- [Back-end](#backend)
 
 ---
 
@@ -30,9 +30,13 @@ Primary page layout showing upper section (with title and account/site button) a
 Character details layouts. Initial design (top left) and final design (bottom right).
 ![Wireframe 4](https://i.ibb.co/pQLZCZC/wf-4.jpg)
 
+<a name='tech'/>
+
 ### Technologies Used
 - [React](https://reactjs.org/)
 - [React Router](https://www.npmjs.com/package/react-router)
+
+<a name='next'/>
 
 ### Next Steps
 - Add list (all) and detail (single) pages for other entities (Ships, Species, Ranks)
@@ -42,33 +46,10 @@ Character details layouts. Initial design (top left) and final design (bottom ri
 ..* Red Alert animation
 ..* 404 Glitch animation
 ..* Ambient animations (flashes, numbers, etc)
-- [JOI validation](https://github.com/hapijs/joi)
+- Form validation
 
 ---
+<a name='backend'/>
 
 ## Back-end
-### Entity Relationship Diagram
-![ERD Diagram](https://i.ibb.co/TK8ZW81/Star-Trek-API.png)
-
-### API Documentation
-SQL Version:<br/>
-[Check out the API Docs on Postman!](https://documenter.getpostman.com/view/9534886/SWE27KyV)
-
-~Sequelize ORM Version:~<br/>
-~[Check out the ORM API Docs on Postman!]~(https://documenter.getpostman.com/view/9534886/SWE28KtM)
-
-### Object-Relational Mapping
-As an additional task, I implemented a duplicate API that works through the Sequelize ORM library. To access this version of the API, simply prepend `/orm` to the request.
-
-For example, get all characters with request `/characters` would become `/orm/characters`.
-
-### Technologies Used
-- [Node](https://nodejs.org/)
-- [Express](https://expressjs.com/)
-- [SQLite3](https://www.npmjs.com/package/sqlite3)
-- ERD via [dbdiagram.io](https://dbdiagram.io/home)
-- API docs via [Postman](https://www.getpostman.com/)
-
-### Next Steps
-- Only parse request for JSON if JSON is expected (POST, PUT)
-- [JOI validation](https://github.com/hapijs/joi)
+Check out the back-end repo at [https://github.com/maustin/lcars-backend/](https://github.com/maustin/lcars-backend/)
