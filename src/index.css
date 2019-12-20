@@ -211,6 +211,30 @@ body {
 	font-size: 68px;
 }
 
+.glitch-left {
+	margin-left: -10px;
+}
+
+.glitch-left-hard {
+	margin-left: -30px;
+}
+
+.gitch-right {
+	margin-left: 10px;
+}
+
+.glitch-right-hard {
+	margin-left: 30px;
+}
+
+.glitch-down {
+	margin-top: 5px;
+}
+
+.glitch-up {
+	margin-top: -5px;
+}
+
 .character-page {
 	height: 100%;
 	overflow: hidden;
