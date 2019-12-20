@@ -1,19 +1,19 @@
 # Project 3 - Star Trek API w/ React Front-end
-#### An Graphical '[LCARS](https://memory-alpha.fandom.com/wiki/Library_Computer_Access_and_Retrieval_System)'-style UI for accessing an API covering Characters, Ships, Species, and Ranks from Star Trek eras TNG (The Next Generation) to DS9 (Deep Space 9).
+#### A Graphical '[LCARS](https://memory-alpha.fandom.com/wiki/Library_Computer_Access_and_Retrieval_System)'-style UI for accessing an API covering Characters, Ships, Species, and Ranks from Star Trek eras TNG (The Next Generation) to DS9 (Deep Space 9).
 
 ## Front-end
 ### Wireframes
 Character list and detail before settling on 'LCARS'-style design.
-[Wireframe 1](https://i.ibb.co/S0k5zKm/wf-1.jpg)
+![Wireframe 1](https://i.ibb.co/S0k5zKm/wf-1.jpg)
 
 Starting to play with LCARS shapes and possible components.
-[Wireframe 2](https://i.ibb.co/mT1TcJb/wf-2.jpg)
+![Wireframe 2](https://i.ibb.co/mT1TcJb/wf-2.jpg)
 
 Primary page layout showing upper section (with title and account/site button) and lower section (with navigation column and content area).
-[Wireframe 3](https://i.ibb.co/ph2qR1z/wf-3.jpg)
+![Wireframe 3](https://i.ibb.co/ph2qR1z/wf-3.jpg)
 
 Character details layouts. Initial design (top left) and final design (bottom right).
-[Wireframe 4](https://i.ibb.co/pQLZCZC/wf-4.jpg)
+![Wireframe 4](https://i.ibb.co/pQLZCZC/wf-4.jpg)
 
 ### Technologies Used
 - [React](https://reactjs.org/)
