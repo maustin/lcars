@@ -1,8 +1,18 @@
 # Project 3 - Star Trek API w/ React Front-end
 #### A Graphical '[LCARS](https://memory-alpha.fandom.com/wiki/Library_Computer_Access_and_Retrieval_System)'-style UI for accessing an API covering Characters, Ships, Species, and Ranks from Star Trek eras TNG (The Next Generation) to DS9 (Deep Space 9).
 
-##### Table of Contents
-[Wireframes](#wireframes)
+---
+
+### Table of Contents
+#### Front-end
+- [Wireframes](#wireframes)
+- [Technologies Used](#fe-tech)
+- [Next Steps](#fe-next)
+
+#### Back-end
+- [Back-end README]()
+
+---
 
 ## Front-end
 <a name='wireframes'/>
@@ -44,8 +54,8 @@ Character details layouts. Initial design (top left) and final design (bottom ri
 SQL Version:<br/>
 [Check out the API Docs on Postman!](https://documenter.getpostman.com/view/9534886/SWE27KyV)
 
-Sequelize ORM Version:<br/>
-[Check out the ORM API Docs on Postman!](https://documenter.getpostman.com/view/9534886/SWE28KtM)
+~Sequelize ORM Version:~<br/>
+~[Check out the ORM API Docs on Postman!]~(https://documenter.getpostman.com/view/9534886/SWE28KtM)
 
 ### Object-Relational Mapping
 As an additional task, I implemented a duplicate API that works through the Sequelize ORM library. To access this version of the API, simply prepend `/orm` to the request.
