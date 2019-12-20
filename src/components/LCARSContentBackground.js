@@ -34,7 +34,7 @@ class LCARSContentBackground extends React.Component {
 						color={LCARSColors.PEACH} />
 				</div>
 				<Block text='03-041980' row='4/5' column='1/2' color={LCARSColors.ORANGE} blockStyle='padTop' />
-				<Block text='86-753090' row='5/6' column='1/2' color={LCARSColors.ORANGE} blockStyle='padTop minH200 textTop' />
+				<Block text='86-753090' row='5/6' column='1/2' color={LCARSColors.ORANGE} blockStyle='padTop minH160 textTop' />
 			</div>
 		)
 	}

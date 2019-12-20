@@ -58,7 +58,7 @@ body {
 	top: 0;
 	bottom: 100%;
 	width: 80%;
-	height: 620px;
+	height: 585px;
 	margin-top: 21px;
 	/*overflow: auto;*/
 }
@@ -248,7 +248,6 @@ body {
 
 .character-summary-details-header {
 	width: 100%;
-	/*background-color: #9999FF;*/
 	text-align: right;
 	padding-top: 5px;
 }
@@ -308,7 +307,6 @@ body {
 }
 
 .character-detail-body-stats-name {
-	/*color: #fae607;*/
 	font-size: 40px;
 }
 
@@ -322,7 +320,6 @@ body {
 .character-detail-body-stats-row-prefix {
 	grid-column: 1/2;
 	grid-row: 1;
-	/*color: #d6c71c;*/
 	font-size: 18px;
 }
 
