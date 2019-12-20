@@ -20,8 +20,8 @@ class CharacterModel {
 		.catch(error => console.log('Failed to create character:\n', error));
 	}
 
-	static delete = item => {
-		return fetch(`${END_POINT}/${item._id}`, {
+	static delete = id => {
+		return fetch(`${END_POINT}/${id}`, {
 			method: 'DELETE'
 		})
 			.then(response => response.json())
@@ -29,7 +29,7 @@ class CharacterModel {
 	}
 
 	static update = item => {
-		return fetch(`${END_POINT}/${item._id}`, {
+		return fetch(`${END_POINT}/${item.id}`, {
 			method: 'PUT',
 			headers: {
 				'Content-Type': 'application/json'

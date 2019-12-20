@@ -4,7 +4,8 @@ import * as TextUtils from '../utils/TextUtils';
 
 class BlockButton extends React.Component {
 	onClick = event => {
-		//
+		if (this.props.onClick)
+			this.props.onClick(event);
 	}
 
 	render() {
@@ -20,8 +21,13 @@ class BlockButton extends React.Component {
 			'background': this.props.tabColor || 'gray'
 		}
 
+		let visibility = this.props.hide ? "hidden" : "visible";
+
 		return (
-			<div className='block-button' onClick={this.onClick} >
+			<div
+				className='block-button'
+				style={{ visibility: visibility }}
+				onClick={this.onClick} >
 				<div className='block-button-tab' style={tabStyle} />
 				<div className='block-button-numbers' style={textStyle} >
 					{TextUtils.getRandomNumberFill('xxx')}

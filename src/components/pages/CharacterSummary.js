@@ -3,17 +3,8 @@ import { withRouter } from 'react-router-dom';
 import * as TextUtils from '../../utils/TextUtils';
 
 class CharacterSummary extends React.Component {
-	state = {
-		hide: false,
-		expand: false
-	}
-
 	handleClick = event => {
 		this.props.history.push('/characterdetail', { data: this.props.data });
-		//console.log("summary click", this.props.data.id);
-		//this.props.handleSelect(this.props.data.id);
-		
-		//this.setState({ expand: true });
 	}
 
 	render() {
