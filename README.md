@@ -1,68 +1,53 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Project 3 - Star Trek API w/ React Front-end
+#### An Graphical '[LCARS](https://memory-alpha.fandom.com/wiki/Library_Computer_Access_and_Retrieval_System)'-style UI for accessing an API covering Characters, Ships, Species, and Ranks from Star Trek eras TNG (The Next Generation) to DS9 (Deep Space 9).
 
-## Available Scripts
+## Front-end
+### Wireframes
+Character list and detail before settling on 'LCARS'-style design.
+[Wireframe 1](https://i.ibb.co/S0k5zKm/wf-1.jpg)
 
-In the project directory, you can run:
+Starting to play with LCARS shapes and possible components.
+[Wireframe 2](https://i.ibb.co/mT1TcJb/wf-2.jpg)
 
-### `npm start`
+Primary page layout showing upper section (with title and account/site button) and lower section (with navigation column and content area).
+[Wireframe 3](https://i.ibb.co/ph2qR1z/wf-3.jpg)
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Character details layouts. Initial design (top left) and final design (bottom right).
+[Wireframe 4](https://i.ibb.co/pQLZCZC/wf-4.jpg)
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+### Technologies Used
+- [React](https://reactjs.org/)
+- [React Router](https://www.npmjs.com/package/react-router)
 
-### `npm test`
+### Next Steps
+- Only parse request for JSON if JSON is expected (POST, PUT)
+- [JOI validation](https://github.com/hapijs/joi)
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## Back-end
+### Entity Relationship Diagram
+![ERD Diagram](https://i.ibb.co/TK8ZW81/Star-Trek-API.png)
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### API Documentation
+SQL Version:<br/>
+[Check out the API Docs on Postman!](https://documenter.getpostman.com/view/9534886/SWE27KyV)
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+Sequelize ORM Version:<br/>
+[Check out the ORM API Docs on Postman!](https://documenter.getpostman.com/view/9534886/SWE28KtM)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Object-Relational Mapping
+As an additional task, I implemented a duplicate API that works through the Sequelize ORM library. To access this version of the API, simply prepend `/orm` to the request.
 
-### `npm run eject`
+For example, get all characters with request `/characters` would become `/orm/characters`.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Technologies Used
+- [Node](https://nodejs.org/)
+- [Express](https://expressjs.com/)
+- [SQLite3](https://www.npmjs.com/package/sqlite3)
+- ERD via [dbdiagram.io](https://dbdiagram.io/home)
+- API docs via [Postman](https://www.getpostman.com/)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+### Next Steps
+- Only parse request for JSON if JSON is expected (POST, PUT)
+- [JOI validation](https://github.com/hapijs/joi)
