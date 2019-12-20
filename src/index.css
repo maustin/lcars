@@ -185,6 +185,7 @@ body {
 }
 
 .home-page {
+	margin-left: -30px;
 	padding-top: 40px;
 	display: flex;
 	flex-direction: column;
@@ -195,6 +196,7 @@ body {
 .home-page-text {
 	color: #F8FBDB;
 	font-size: 24px;
+	margin-bottom: 5px;
 }
 
 .home-page-image {
@@ -202,6 +204,11 @@ body {
 	width: 50%;
 	height: 50%;
 	object-fit: cover;
+}
+
+.missing-page-notice {
+	color: #F8FBDB;
+	font-size: 68px;
 }
 
 .character-page {

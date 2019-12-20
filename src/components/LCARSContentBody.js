@@ -6,6 +6,7 @@ import CharacterDetail from './pages/CharacterDetail';
 import ShipsPage from './pages/ShipsPage';
 import SpeciesPage from './pages/SpeciesPage';
 import RanksPage from './pages/RanksPage';
+import MissingPage from './pages/MissingPage';
 
 class LCARSContentBody extends React.Component {
 	render() {
@@ -18,6 +19,7 @@ class LCARSContentBody extends React.Component {
 					<Route path='/ships' component={ ShipsPage } />
 					<Route path='/species' component={ SpeciesPage } />
 					<Route path='/ranks' component={ RanksPage } />
+					<Route component={ MissingPage } />
 				</Switch>
 			</div>
 		)
