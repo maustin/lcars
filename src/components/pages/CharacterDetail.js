@@ -13,7 +13,15 @@ class CharacterDetail extends React.Component {
 		preUpdate: false,
 		updating: false,
 		deleting: false,
+		newStatus: null,
 	}
+	nameRef = React.createRef();
+	statusRef = React.createRef();
+	speciesRef = React.createRef();
+	genderRef = React.createRef();
+	dobRef = React.createRef();
+	actorRef = React.createRef();
+	imageRef = React.createRef();
 
 	goBack = event => {
 		this.props.history.goBack();
@@ -61,7 +69,14 @@ class CharacterDetail extends React.Component {
 			pageStyle.pointerEvents = 'none';
 			pageStyle.opacity = 0.5;
 		}
-		//<input type="text" id="name" name="name" required minlength="4" maxlength="8" size="10">
+
+		let textStyle = {};
+		let inputStyle = {};
+		if (this.state.preUpdate)
+			textStyle.display = 'none';
+		else
+			inputStyle.display = 'none';
+
 		return (
 			<div className='character-detail' style={pageStyle}>
 				<div className='character-page-header'>
@@ -91,34 +106,108 @@ class CharacterDetail extends React.Component {
 						text={TextUtils.getRandomNumberFill('xx-xxx')}/>
 
 					<form className='character-detail-body-stats'>
-						<span className='character-detail-body-stats-name'>{data.name}</span>
+						<span
+							className='character-detail-body-stats-name'
+							style={textStyle}>
+							{data.name}
+						</span>
+						<input
+							ref={this.nameRef}
+							type='text'
+							name='name'
+							defaultValue={data.name}
+							className='text-input text-input-big'
+							style={inputStyle}
+							required />
 						<div className='character-detail-body-stats-row'>
 							<span className='character-detail-body-stats-row-prefix'>CURRENT STATUS</span>
-							<span className='character-detail-body-stats-row-text'>{data.status}</span>
+							<span
+								className='character-detail-body-stats-row-text'
+								style={textStyle}>
+								{data.status}
+							</span>
+							<input
+								ref={this.statusRef}
+								type='text'
+								name='status'
+								defaultValue={data.status}
+								className='text-input'
+								style={inputStyle}
+								required />
 						</div>
 						<div className='character-detail-body-stats-row'>
 							<span className='character-detail-body-stats-row-prefix'>SPECIES</span>
-							<span className='character-detail-body-stats-row-text'>{data['species.name']}</span>
+							<span
+								className='character-detail-body-stats-row-text'
+								style={textStyle}>
+								{data['species.name']}
+							</span>
+							
 						</div>
 						<div className='character-detail-body-stats-row'>
 							<span className='character-detail-body-stats-row-prefix'>GENDER</span>
-							<span className='character-detail-body-stats-row-text'>{TextUtils.getGenderString(data.gender)}</span>
+							<span
+								className='character-detail-body-stats-row-text'
+								style={textStyle}>
+								{TextUtils.getGenderString(data.gender)}
+							</span>
+							<input
+								ref={this.genderRef}
+								type='text'
+								name='gender'
+								defaultValue={data.gender}
+								className='text-input'
+								style={inputStyle}
+								required />
 						</div>
 						<div className='character-detail-body-stats-row'>
 							<span className='character-detail-body-stats-row-prefix'>DATE OF BIRTH</span>
-							<span className='character-detail-body-stats-row-text'>{data.dob}</span>
+							<span
+								className='character-detail-body-stats-row-text'
+								style={textStyle}>
+								{data.dob}
+							</span>
+							<input
+								ref={this.dobRef}
+								type='text'
+								name='dob'
+								defaultValue={data.dob}
+								className='text-input'
+								style={inputStyle}
+								required />
 						</div>
 						<div className='character-detail-body-stats-row'>
 							<span className='character-detail-body-stats-row-prefix'>PORTRAYED BY</span>
-							<span className='character-detail-body-stats-row-text'>{data.actor}</span>
+							<span
+								className='character-detail-body-stats-row-text'
+								style={textStyle}>
+								{data.actor}
+							</span>
+							<input
+								ref={this.actorRef}
+								type='text'
+								name='actor'
+								defaultValue={data.actor}
+								className='text-input'
+								style={inputStyle}
+								required />
 						</div>
 						<div className='character-detail-body-stats-row'>
 							<span className='character-detail-body-stats-row-prefix'>IMAGE URL</span>
 						</div>
 						<span
-							className='character-detail-body-stats-row-text gross-url'>
+							className='character-detail-body-stats-row-text gross-url'
+							style={textStyle}>
 							{data.image}
 						</span>
+						<textarea
+							ref={this.imageRef}
+							type='url'
+							name='image'
+							defaultValue={data.image}
+							className='text-input-url'
+							style={inputStyle}
+							required />
 					</form>
 					<div className='character-detail-body-buttons'>
 						<BlockButton
@@ -158,5 +247,16 @@ class CharacterDetail extends React.Component {
 		)
 	}
 }
+
+/*
+<input
+								ref={this.speciesRef}
+								type='text'
+								name='species'
+								defaultValue={data.species}
+								className='text-input'
+								style={inputStyle}
+								required />
+*/
 
 export default withRouter(CharacterDetail);

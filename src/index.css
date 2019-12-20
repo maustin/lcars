@@ -305,7 +305,7 @@ body {
 .character-detail-body-stats-row {
 	display: grid;
 	grid-template-rows: 36px;
-	grid-template-columns: 130px 240px;
+	grid-template-columns: 130px 220px;
 	align-items: flex-end;
 }
 
@@ -314,6 +314,40 @@ body {
 	grid-row: 1;
 	color: #d6c71c;
 	font-size: 18px;
+}
+
+.text-input {
+	grid-column: 2/3;
+	grid-row: 1;
+	color: #F8FBDB;
+	font-size: 24px;
+	-webkit-appearance: none; 
+  	appearance: none;
+  	background: #101010;
+  	border: 0;
+  	font-family: 'Big Shoulders Text', sans-serif;
+  	margin: 0;
+  	padding: 0;
+}
+
+.text-input-big {
+	font-size: 40px;
+}
+
+.text-input-url {
+	color: #F8FBDB;
+	font-size: 14px;
+	overflow: hidden;
+	height: 100%;
+	-webkit-appearance: none; 
+  	appearance: none;
+  	background: #101010;
+  	border: 0;
+  	font-family: 'Big Shoulders Text', sans-serif;
+  	margin: 0;
+  	padding: 0;
+  	margin-top: 7px;
+  	resize: none;
 }
 
 .character-detail-body-stats-row-text {
