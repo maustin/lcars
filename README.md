@@ -1,7 +1,11 @@
 # Project 3 - Star Trek API w/ React Front-end
 #### A Graphical '[LCARS](https://memory-alpha.fandom.com/wiki/Library_Computer_Access_and_Retrieval_System)'-style UI for accessing an API covering Characters, Ships, Species, and Ranks from Star Trek eras TNG (The Next Generation) to DS9 (Deep Space 9).
 
+##### Table of Contents
+[Wireframes](#wireframes)
+
 ## Front-end
+<a name='wireframes'/>
 ### Wireframes
 Character list and detail before settling on 'LCARS'-style design.
 ![Wireframe 1](https://i.ibb.co/S0k5zKm/wf-1.jpg)
@@ -20,7 +24,13 @@ Character details layouts. Initial design (top left) and final design (bottom ri
 - [React Router](https://www.npmjs.com/package/react-router)
 
 ### Next Steps
-- Only parse request for JSON if JSON is expected (POST, PUT)
+- Add list (all) and detail (single) pages for other entities (Ships, Species, Ranks)
+- Add 'Service Record' section to Character Details page
+- Add ability to edit Character species
+- Add animations
+..* Red Alert animation
+..* 404 Glitch animation
+..* Ambient animations (flashes, numbers, etc)
 - [JOI validation](https://github.com/hapijs/joi)
 
 ---
