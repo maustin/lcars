@@ -1,5 +1,6 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
+import HomePage from './pages/HomePage';
 import CharactersPage from './pages/CharactersPage';
 import CharacterDetail from './pages/CharacterDetail';
 import ShipsPage from './pages/ShipsPage';
@@ -11,6 +12,7 @@ class LCARSContentBody extends React.Component {
 		return (
 			<div className='lcars-content-body'>
 				<Switch>
+					<Route exact path='/' component={ HomePage } />
 					<Route path='/characters' component={ CharactersPage } />
 					<Route path='/characterdetail' component={ CharacterDetail } />
 					<Route path='/ships' component={ ShipsPage } />
