@@ -30,7 +30,7 @@ class CharacterSummary extends React.Component {
 					className='character-summary-image'
 					src={this.props.data.image}
 					alt=''
-					onError={(event) => event.target.src = 'placeholder.png'}/>
+					onError={(event) => event.target.src = 'placeholder.jpg'}/>
 				<div className='character-summary-details-container'>
 					<div className='character-summary-details-header' style={headerStyle}>
 						<span 

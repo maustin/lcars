@@ -208,7 +208,7 @@ class CharacterDetail extends React.Component {
 						className='character-detail-body-image'
 						src={data.image}
 						alt=''
-						onError={(event) => event.target.src = 'placeholder.png'}/>
+						onError={(event) => event.target.src = 'placeholder.jpg'}/>
 					<Block
 						row='2/3'
 						column='1/2'
