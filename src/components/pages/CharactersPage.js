@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 import * as LCARSColors from '../../utils/LCARSColors';
 import CharacterModel from '../../models/CharacterModel';
 import CharacterSummary from './CharacterSummary';
@@ -16,18 +17,16 @@ class CharactersPage extends React.Component {
 
 	getAll = () => {
 		CharacterModel.all().then(res => {
-			//console.log(res);
 			this.setState({ characters: res });
 		})
 	}
 
 	handleSelect = selectedId => {
-		//console.log("selectedId", selectedId);
 		this.setState({ selectedId: selectedId });
 	}
 
 	onAddClick = event => {
-		//
+		this.props.history.push('/characterdetail', { data: null });
 	}
 
 	componentDidMount() {
@@ -99,4 +98,4 @@ class CharactersPage extends React.Component {
 	}
 }
 
-export default CharactersPage;
+export default withRouter(CharactersPage);

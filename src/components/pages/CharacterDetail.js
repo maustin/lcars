@@ -14,7 +14,7 @@ class CharacterDetail extends React.Component {
 		preUpdate: false,
 		updating: false,
 		deleting: false,
-		newStatus: null,
+		adding: false,
 	}
 	formRef = React.createRef();
 	nameRef = React.createRef();
@@ -38,27 +38,59 @@ class CharacterDetail extends React.Component {
 	}
 
 	onCancelClick = event => {
+		if (!this.state.data && !this.props.location.state.data)
+			this.props.history.goBack();
+		
 		this.setState({ preUpdate: false, preDelete: false });
 	}
 
 	onConfirmClick = event => {
-		if (this.state.preUpdate)
+		if (!this.state.data && !this.props.location.state.data)
+			this.doAdd();
+		else if (this.state.preUpdate)
 			this.doUpdate();
 		else if (this.state.preDelete)
 			this.doDelete();
 	}
 
+	addFormDataToObject = obj => {
+		let elements = this.formRef.current.elements;
+		for (let i = 0; i < elements.length; i++) {
+			obj[elements[i].name] = elements[i].value;
+		}
+		return obj;
+	}
+
+	doAdd = () => {
+		this.setState({ adding: true });
+		let values = this.getBlankData();
+		this.addFormDataToObject(values);
+
+		CharacterModel.create(values)
+		.then(res => {
+			if (res && res.status && res.status == 200)
+			{
+				// TODO: This is a bit of a hack. The backend should really just return the new object.
+				CharacterModel.all()
+				.then(res => {
+					console.log()
+					let last = res[res.length - 1];
+					this.setState({ adding: false, data: last });
+				});
+			}
+			else
+				this.props.history.goBack();
+		})
+	}
+
 	doUpdate = () => {
 		this.setState({ updating: true });
 		let data = this.state.data || this.props.location.state.data;
-		let elements = this.formRef.current.elements;
+		
 		let values = {
 			id: data.id
 		};
-
-		for (let i = 0; i < elements.length; i++) {
-			values[elements[i].name] = elements[i].value;
-		}
+		this.addFormDataToObject(values);
 
 		CharacterModel.update(values)
 		.then(res => {
@@ -82,17 +114,51 @@ class CharacterDetail extends React.Component {
 		.then(res => this.goBack());
 	}
 
+	getBlankData = () => {
+		return {
+			name: '',
+			status: '',
+			species_id: 1,
+			gender: '',
+			dob: '',
+			actor: '',
+			image: '',
+			user_generated: 1
+		}
+	}
+
 	render() {
-		if (!this.state.data && (!this.props.location.state || !this.props.location.state.data))
+		let data;
+		let isNew = false;
+		if (!this.state.data) {
+			if (!this.props.location.state)
+				return (<h1>ERROR</h1>);
+			else if (!this.props.location.state.data) {
+				isNew = true;
+				data = this.getBlankData();
+			}
+			else
+				data = this.props.location.state.data;
+		}
+		else
+			data = this.state.data;
+		/*
+		if (!this.state.data && !this.props.location.state)
 		{
 			return (<h1>ERROR</h1>);
 		}
 
-		let data = this.state.data || this.props.location.state.data;
-		let hideCancelConfirm = !(this.state.preUpdate || this.state.preDelete);
+		let isNew = false;
+		if (!this.props.location.state.data)
+			isNew = true;
+
+		let data = isNew ? this.getBlankData() : this.state.data || this.props.location.state.data;
+		*/
+		let hideCancelConfirm = !(this.state.preUpdate || this.state.preDelete || isNew);
+		let hideUpdateDelete = isNew;
 
 		let pageStyle = {};
-		if (this.state.updating || this.state.deleting) {
+		if (this.state.updating || this.state.deleting || this.state.adding) {
 			pageStyle.pointerEvents = 'none';
 			pageStyle.opacity = 0.5;
 		}
@@ -101,7 +167,7 @@ class CharacterDetail extends React.Component {
 			color: this.state.preDelete ? LCARSColors.RED : LCARSColors.TEXT_YELLOW
 		};
 		let inputStyle = {};
-		if (this.state.preUpdate)
+		if (this.state.preUpdate || isNew)
 			textStyle.display = 'none';
 		else
 			inputStyle.display = 'none';
@@ -286,11 +352,13 @@ class CharacterDetail extends React.Component {
 							tabColor={LCARSColors.ORANGE} />
 						<BlockButton
 							text='UPDATE'
+							hide={hideUpdateDelete}
 							onClick={this.onUpdateClick}
 							baseColor={LCARSColors.ORANGE}
 							tabColor={LCARSColors.ORANGE} />
 						<BlockButton
 							text='DELETE'
+							hide={hideUpdateDelete}
 							onClick={this.onDeleteClick}
 							baseColor={LCARSColors.RED}
 							textColor={LCARSColors.REDDISH}
