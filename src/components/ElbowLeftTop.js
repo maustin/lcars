@@ -28,7 +28,6 @@ class ElbowLeftTop extends React.Component {
 		}
 
 		return (
-
 			<div style={style}>
 				{ element }
 			</div>

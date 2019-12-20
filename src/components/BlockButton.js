@@ -9,6 +9,11 @@ class BlockButton extends React.Component {
 	}
 
 	render() {
+		let style = {
+			'gridColumn': this.props.column || 1,
+			'gridRow': this.props.row || 1,
+		};
+
 		let baseStyle = {
 			'background': this.props.baseColor || 'gray'
 		};
@@ -21,12 +26,12 @@ class BlockButton extends React.Component {
 			'background': this.props.tabColor || 'gray'
 		}
 
-		let visibility = this.props.hide ? "hidden" : "visible";
+		style.visibility = this.props.hide ? "hidden" : "visible";
 
 		return (
 			<div
 				className='block-button'
-				style={{ visibility: visibility }}
+				style={style}
 				onClick={this.onClick} >
 				<div className='block-button-tab' style={tabStyle} />
 				<div className='block-button-numbers' style={textStyle} >

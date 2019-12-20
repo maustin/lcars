@@ -4,6 +4,8 @@ import CharacterModel from '../../models/CharacterModel';
 import CharacterSummary from './CharacterSummary';
 import CharacterDetail from './CharacterDetail';
 import ElbowLeftTop from '../ElbowLeftTop';
+import ElbowLeftBottom from '../ElbowLeftBottom';
+import BlockButton from '../BlockButton';
 import Block from '../Block';
 
 class CharactersPage extends React.Component {
@@ -22,6 +24,10 @@ class CharactersPage extends React.Component {
 	handleSelect = selectedId => {
 		//console.log("selectedId", selectedId);
 		this.setState({ selectedId: selectedId });
+	}
+
+	onAddClick = event => {
+		//
 	}
 
 	componentDidMount() {
@@ -64,14 +70,33 @@ class CharactersPage extends React.Component {
 				<div className='character-page-scrollview'>
 					{ characters }
 				</div>
+				<div className='character-page-footer'>
+					<ElbowLeftBottom
+						skinny
+						row='2/4'
+						column='1/3'
+						color={LCARSColors.BEIGE} />
+					<Block
+						row='1/2'
+						column='1/2'
+						color={LCARSColors.BEIGE}
+						blockStyle='padRight' />
+					<Block
+						row='3/4'
+						column='3/4'
+						color={LCARSColors.BEIGE}
+						blockStyle='padRight' />
+					<BlockButton
+						text='ADD'
+						row='1/4'
+						column='4/5'
+						onClick={this.onAddClick}
+						baseColor={LCARSColors.PURPLE}
+						tabColor={LCARSColors.PURPLE} />
+				</div>
 			</div>
 		)
 	}
 }
-/*
-<div className='character-page-scrollview'>
-					{ characters }
-				</div>
-*/
 
 export default CharactersPage;

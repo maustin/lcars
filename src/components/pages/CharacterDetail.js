@@ -9,12 +9,14 @@ import Block from '../Block';
 
 class CharacterDetail extends React.Component {
 	state = {
+		data: null,
 		preDelete: false,
 		preUpdate: false,
 		updating: false,
 		deleting: false,
 		newStatus: null,
 	}
+	formRef = React.createRef();
 	nameRef = React.createRef();
 	statusRef = React.createRef();
 	speciesRef = React.createRef();
@@ -48,20 +50,45 @@ class CharacterDetail extends React.Component {
 
 	doUpdate = () => {
 		this.setState({ updating: true });
+		let data = this.state.data || this.props.location.state.data;
+		let elements = this.formRef.current.elements;
+		let values = {
+			id: data.id
+		};
+
+		for (let i = 0; i < elements.length; i++) {
+			values[elements[i].name] = elements[i].value;
+		}
+
+		CharacterModel.update(values)
+		.then(res => {
+			if (res && res.status && res.status == 200)
+			{
+				CharacterModel.single(data.id)
+				.then(res => {
+					this.setState({ updating: false, preUpdate: false, data: res });
+				});
+			}
+			else
+				this.props.location.reload();
+		});
 	}
 
 	doDelete = () => {
 		this.setState({ deleting: true });
-		CharacterModel.delete(this.props.location.state.data.id)
+		let data = this.state.data || this.props.location.state.data;
+
+		CharacterModel.delete(data.id)
 		.then(res => this.goBack());
 	}
 
 	render() {
-		if (!this.props.location.state || !this.props.location.state.data) {
+		if (!this.state.data && (!this.props.location.state || !this.props.location.state.data))
+		{
 			return (<h1>ERROR</h1>);
 		}
 
-		let data = this.props.location.state.data;
+		let data = this.state.data || this.props.location.state.data;
 		let hideCancelConfirm = !(this.state.preUpdate || this.state.preDelete);
 
 		let pageStyle = {};
@@ -70,12 +97,30 @@ class CharacterDetail extends React.Component {
 			pageStyle.opacity = 0.5;
 		}
 
-		let textStyle = {};
+		let textStyle = {
+			color: this.state.preDelete ? LCARSColors.RED : LCARSColors.TEXT_YELLOW
+		};
 		let inputStyle = {};
 		if (this.state.preUpdate)
 			textStyle.display = 'none';
 		else
 			inputStyle.display = 'none';
+
+		let wrapColor = LCARSColors.PEACH;
+		let status = data.status.toLowerCase();
+		if (status.includes('deceased'))
+			wrapColor = LCARSColors.REDDISH;
+		else if (status.includes('missing'))
+			wrapColor = LCARSColors.PINK;
+		else if (status.includes('resigned'))
+			wrapColor = LCARSColors.PURPLE;
+
+		if (this.state.preDelete)
+			wrapColor = LCARSColors.RED;
+
+		let textPrefixStyle = {
+			color: this.state.preDelete ? LCARSColors.RED : LCARSColors.TEXT_YELLOW_MELLOW
+		}
 
 		return (
 			<div className='character-detail' style={pageStyle}>
@@ -84,11 +129,11 @@ class CharacterDetail extends React.Component {
 						skinny
 						row='1/3'
 						column='1/2'
-						color={LCARSColors.BEIGE} />
+						color={wrapColor} />
 					<Block
 						row='1/2'
 						column='2/3'
-						color={LCARSColors.BEIGE}
+						color={wrapColor}
 						blockStyle='' />
 				</div>
 				
@@ -101,11 +146,11 @@ class CharacterDetail extends React.Component {
 					<Block
 						row='2/3'
 						column='1/2'
-						color={LCARSColors.BEIGE}
+						color={wrapColor}
 						blockStyle='pad2xTop'
 						text={TextUtils.getRandomNumberFill('xx-xxx')}/>
 
-					<form className='character-detail-body-stats'>
+					<form ref={this.formRef} className='character-detail-body-stats'>
 						<span
 							className='character-detail-body-stats-name'
 							style={textStyle}>
@@ -120,7 +165,11 @@ class CharacterDetail extends React.Component {
 							style={inputStyle}
 							required />
 						<div className='character-detail-body-stats-row'>
-							<span className='character-detail-body-stats-row-prefix'>CURRENT STATUS</span>
+							<span
+								style={textPrefixStyle}
+								className='character-detail-body-stats-row-prefix'>
+								CURRENT STATUS
+							</span>
 							<span
 								className='character-detail-body-stats-row-text'
 								style={textStyle}>
@@ -136,7 +185,11 @@ class CharacterDetail extends React.Component {
 								required />
 						</div>
 						<div className='character-detail-body-stats-row'>
-							<span className='character-detail-body-stats-row-prefix'>SPECIES</span>
+							<span
+								style={textPrefixStyle}
+								className='character-detail-body-stats-row-prefix'>
+								SPECIES
+							</span>
 							<span
 								className='character-detail-body-stats-row-text'
 								style={textStyle}>
@@ -145,7 +198,11 @@ class CharacterDetail extends React.Component {
 							
 						</div>
 						<div className='character-detail-body-stats-row'>
-							<span className='character-detail-body-stats-row-prefix'>GENDER</span>
+							<span
+								style={textPrefixStyle}
+								className='character-detail-body-stats-row-prefix'>
+								GENDER
+							</span>
 							<span
 								className='character-detail-body-stats-row-text'
 								style={textStyle}>
@@ -161,7 +218,11 @@ class CharacterDetail extends React.Component {
 								required />
 						</div>
 						<div className='character-detail-body-stats-row'>
-							<span className='character-detail-body-stats-row-prefix'>DATE OF BIRTH</span>
+							<span
+								style={textPrefixStyle}
+								className='character-detail-body-stats-row-prefix'>
+								DATE OF BIRTH
+							</span>
 							<span
 								className='character-detail-body-stats-row-text'
 								style={textStyle}>
@@ -177,7 +238,11 @@ class CharacterDetail extends React.Component {
 								required />
 						</div>
 						<div className='character-detail-body-stats-row'>
-							<span className='character-detail-body-stats-row-prefix'>PORTRAYED BY</span>
+							<span
+								style={textPrefixStyle}
+								className='character-detail-body-stats-row-prefix'>
+								PORTRAYED BY
+							</span>
 							<span
 								className='character-detail-body-stats-row-text'
 								style={textStyle}>
@@ -193,7 +258,11 @@ class CharacterDetail extends React.Component {
 								required />
 						</div>
 						<div className='character-detail-body-stats-row'>
-							<span className='character-detail-body-stats-row-prefix'>IMAGE URL</span>
+							<span
+								style={textPrefixStyle}
+								className='character-detail-body-stats-row-prefix'>
+								IMAGE URL
+							</span>
 						</div>
 						<span
 							className='character-detail-body-stats-row-text gross-url'
@@ -223,9 +292,9 @@ class CharacterDetail extends React.Component {
 						<BlockButton
 							text='DELETE'
 							onClick={this.onDeleteClick}
-							baseColor='#d61402'
+							baseColor={LCARSColors.RED}
 							textColor={LCARSColors.REDDISH}
-							tabColor={LCARSColors.REDDISH} />
+							tabColor={LCARSColors.RED} />
 						<div style={{ flexGrow: 1}}/>
 						<BlockButton
 							text='CANCEL'
@@ -238,7 +307,7 @@ class CharacterDetail extends React.Component {
 							text='CONFIRM'
 							hide={hideCancelConfirm}
 							onClick={this.onConfirmClick}
-							baseColor='#d61402'
+							baseColor={LCARSColors.RED}
 							textColor='#000'
 							tabColor='#000' />
 					</div>

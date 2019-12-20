@@ -3,8 +3,14 @@ const END_POINT = `http://localhost:3001/characters`;
 class CharacterModel {
 	static all = () => {
 		return fetch(END_POINT)
-			.then(response => response.json())
-			.catch(error => console.log('Could not get characters:\n', error));
+		.then(response => response.json())
+		.catch(error => console.log('Could not get characters:\n', error));
+	}
+
+	static single = id => {
+		return fetch(`${END_POINT}/${id}`)
+		.then(response => response.json())
+		.catch(error => console.log('Could not get character:\n', error));
 	}
 
 	static create = item => {
@@ -12,33 +18,31 @@ class CharacterModel {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json'
-				// 'Content-Type': 'application/x-www-form-urlencoded',
 			},
 			body: JSON.stringify(item)
 		})
-		.then(response => response.json())
 		.catch(error => console.log('Failed to create character:\n', error));
+		//.then(response => response.json())
 	}
 
 	static delete = id => {
 		return fetch(`${END_POINT}/${id}`, {
 			method: 'DELETE'
 		})
-			.then(response => response.json())
-			.catch(error => console.log('Failed to delete character:\n', error));
+		.catch(error => console.log('Failed to delete character:\n', error));
+		//.then(response => response.json())	
 	}
 
 	static update = item => {
-		return fetch(`${END_POINT}/${item.id}`, {
+		return fetch(END_POINT, {
 			method: 'PUT',
 			headers: {
 				'Content-Type': 'application/json'
-				// 'Content-Type': 'application/x-www-form-urlencoded'
 			},
 			body: JSON.stringify(item)
 		})
-		.then(response => response.json())
 		.catch(error => console.log('Failed to update character:\n', error));
+		//.then(response => response.json())
 	}
 }
 

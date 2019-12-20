@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import * as LCARSColors from '../../utils/LCARSColors';
 import * as TextUtils from '../../utils/TextUtils';
 
 class CharacterSummary extends React.Component {
@@ -12,6 +13,15 @@ class CharacterSummary extends React.Component {
 			return (<div/>)
 		}
 
+		let headerStyle = { background: LCARSColors.PEACH };
+		let status = this.props.data.status.toLowerCase();
+		if (status.includes('deceased'))
+			headerStyle.background = LCARSColors.REDDISH;
+		else if (status.includes('missing'))
+			headerStyle.background = LCARSColors.PINK;
+		else if (status.includes('resigned'))
+			headerStyle.background = LCARSColors.PURPLE;
+
 		return (
 			<div
 				className='character-summary'
@@ -22,7 +32,7 @@ class CharacterSummary extends React.Component {
 					alt=''
 					onError={(event) => event.target.src = 'placeholder.png'}/>
 				<div className='character-summary-details-container'>
-					<div className='character-summary-details-header'>
+					<div className='character-summary-details-header' style={headerStyle}>
 						<span 
 							className='character-summary-details-header-text'>
 							{TextUtils.getNameLastFirst(this.props.data.name).toUpperCase()}
