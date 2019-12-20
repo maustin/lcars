@@ -174,7 +174,7 @@ class CharacterDetail extends React.Component {
 
 		let wrapColor = LCARSColors.PEACH;
 		let status = data.status.toLowerCase();
-		if (status.includes('deceased'))
+		if (status.includes('deceased') || status.includes('dead'))
 			wrapColor = LCARSColors.REDDISH;
 		else if (status.includes('missing'))
 			wrapColor = LCARSColors.PINK;
