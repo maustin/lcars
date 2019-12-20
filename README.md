@@ -42,6 +42,7 @@ Character details layouts. Initial design (top left) and final design (bottom ri
 - Add list (all) and detail (single) pages for other entities (Ships, Species, Ranks)
 - Add 'Service Record' section to Character Details page
 - Add ability to edit Character species
+- Responsive layout (mobile)
 - Add animations
   - Red Alert animation
   - 404 Glitch animation
