@@ -6,6 +6,7 @@
 
 ## Front-end
 <a name='wireframes'/>
+
 ### Wireframes
 Character list and detail before settling on 'LCARS'-style design.
 ![Wireframe 1](https://i.ibb.co/S0k5zKm/wf-1.jpg)
