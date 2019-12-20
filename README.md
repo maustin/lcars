@@ -43,9 +43,9 @@ Character details layouts. Initial design (top left) and final design (bottom ri
 2. Add 'Service Record' section to Character Details page
 3. Add ability to edit Character species
 4. Add animations
-..* Red Alert animation
-..* 404 Glitch animation
-..* Ambient animations (flashes, numbers, etc)
+⋅⋅* Red Alert animation
+⋅⋅* 404 Glitch animation
+⋅⋅* Ambient animations (flashes, numbers, etc)
 5. Form validation
 
 ---
