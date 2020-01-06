@@ -7,7 +7,9 @@ class LCARSHeader extends React.Component {
 		return (
 			<div className='lcars-header'>
 				<LCARSHeaderBackground />
-				<LCARSHeaderBody />
+				<LCARSHeaderBody
+					currentUser={this.props.currentUser}
+					logout={this.props.logout} />
 			</div>
 		)
 	}
