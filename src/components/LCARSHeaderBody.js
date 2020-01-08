@@ -19,7 +19,36 @@ class LCARSHeaderBody extends React.Component {
 		this.props.history.push('/profile');
 	}
 
+	goHome = () => {
+		this.props.history.push('/');
+	}
+
 	render() {
+		let authButtons = [];
+		if (this.props.currentUser) {
+			authButtons.push(
+				<PillButton
+					text='LOG OUT'
+					onClick={this.props.logout}
+					color={LCARSColors.ORANGE} />);
+			authButtons.push(
+				<PillButton
+					text='PROFILE'
+					onClick={this.profile}
+					color={LCARSColors.BEIGE} />);
+		}
+		else {
+			authButtons.push(
+				<PillButton
+					text='LOGIN'
+					onClick={this.login}
+					color={LCARSColors.ORANGE} />);
+			authButtons.push(
+				<PillButton
+					text='REGISTER'
+					onClick={this.register}
+					color={LCARSColors.BEIGE} />);
+		}
 		return(
 			<div className='lcars-header-body'>
 				<div className='lcars-header-body-title'>
@@ -28,21 +57,15 @@ class LCARSHeaderBody extends React.Component {
 				<div className='lcars-header-body-lower'>
 					<div className='lcars-header-body-deco' />
 					<div className='lcars-header-body-nav'>
+						{authButtons}
+
 						<PillButton
-							text='LOGIN'
-							onClick={this.login}
-							color={LCARSColors.ORANGE} />
-						<PillButton
-							text='REGISTER'
-							onClick={this.register}
-							color={LCARSColors.BEIGE} />
-						<PillButton
-							text='LOG OUT'
-							onClick={this.props.logout}
+							text='HOME'
+							onClick={this.goHome}
 							color={LCARSColors.PURPLE} />
 						<PillButton
-							text='PROFILE'
-							onClick={this.profile}
+							text='GNDN'
+							onClick={this.goHome}
 							color={LCARSColors.REDDISH} />
 					</div>
 				</div>
