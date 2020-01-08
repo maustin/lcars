@@ -7,6 +7,7 @@ import ShipsPage from './pages/ShipsPage';
 import SpeciesPage from './pages/SpeciesPage';
 import RanksPage from './pages/RanksPage';
 import LoginPage from './pages/LoginPage';
+import RegisterPage from './pages/RegisterPage';
 import MissingPage from './pages/MissingPage';
 
 class LCARSContentBody extends React.Component {
@@ -20,12 +21,17 @@ class LCARSContentBody extends React.Component {
 					<Route path='/ships' component={ ShipsPage } />
 					<Route path='/species' component={ SpeciesPage } />
 					<Route path='/ranks' component={ RanksPage } />
-					<Route path='/login' component={ LoginPage } />
+					<Route
+						path='/login'
+						render={(props) => <LoginPage {...props} setCurrentUser={this.props.setCurrentUser}/> }
+					/>
+					<Route path='/register' component={ RegisterPage } />
 					<Route component={ MissingPage } />
 				</Switch>
 			</div>
 		)
 	}
 }
+//<Route path='/login' component={ LoginPage } />
 
 export default LCARSContentBody;

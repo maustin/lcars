@@ -3,44 +3,42 @@ import { API_URL } from '../../constants';
 import * as LCARSColors from '../../utils/LCARSColors';
 import BlockButton from '../BlockButton';
 
-class LoginPage extends React.Component {
+class RegisterPage extends React.Component {
 	state = {
-		errors: null,
 		submitted: false,
 		email: '',
+		username: '',
 		password: '',
+		password2: '',
 		error: ''
 	}
 
-	//emailRef = React.createRef();
-	//passRef = React.createRef();
-
 	onSubmitClick = event => {
 		event.preventDefault();
-		this.setState({ submitted: true });
-		let user = {
+
+		let newUser = {
+			username: this.state.username,
 			email: this.state.email,
-			password: this.state.password
+			password: this.state.password,
+			password2: this.state.password2
 		};
 
-		fetch(`${API_URL}/auth/login`, {
+		fetch(`${API_URL}/auth/register`, {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json'
 			},
-			body: JSON.stringify(user)
+			body: JSON.stringify(newUser)
 		})
 		.then(res => res.json())
 		.then(data => {
-			console.log('LOGIN SUCCESS', data);
-			this.props.setCurrentUser(data.signedJwt);
-			// TODO: send to... home? Profile?
-			this.props.history.push('/');
+			console.log('REGISTER SUCCESS', data);
+			this.props.history.push('/login');
 		})
 		.catch(err => {
-			console.log('LOGIN ERROR:', err);
+			console.log('REGISTER ERROR', err);
 			this.setState({ submitted: false, error: err });
-		});
+		})
 	}
 
 	handleChange = event => {
@@ -58,7 +56,16 @@ class LoginPage extends React.Component {
 
 		return (
 			<div style={pageStyle}>
-				<h2>Login</h2>
+				<h2>Register</h2>
+
+				<h5>Username</h5>
+				<h6>This is your public-facing name.</h6>
+				<input
+					type='text'
+					name='username'
+					className='text-input'
+					value={this.state.username}
+					onChange={this.handleChange} />
 
 				<h5>Email</h5>
 				<input
@@ -77,15 +84,24 @@ class LoginPage extends React.Component {
 					value={this.state.password}
 					onChange={this.handleChange} />
 
+				<h5>Re-Enter Password</h5>
+				<input
+					type='password'
+					name='password2'
+					className='text-input'
+					value={this.state.password2}
+					onChange={this.handleChange} />
+
 				<BlockButton
 					text='SUBMIT'
 					onClick={this.onSubmitClick}
 					baseColor={LCARSColors.ORANGE}
 					textColor='#000'
 					tabColor='#000' />
+
 			</div>
-		)
+		);
 	}
 }
 
-export default LoginPage;
+export default RegisterPage;

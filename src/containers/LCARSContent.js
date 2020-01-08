@@ -14,7 +14,7 @@ class LCARSContent extends React.Component {
 		return (
 			<div className='lcars-content'>
 				<LCARSContentBackground navTargets={this.navTargets} />
-				<LCARSContentBody />
+				<LCARSContentBody setCurrentUser={this.props.setCurrentUser} />
 			</div>
 		)
 	}

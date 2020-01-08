@@ -11,6 +11,7 @@ class App extends React.Component {
 	setCurrentUser = token => {
 		this.setState({ currentUser: token });
 		localStorage.setItem('uid', token);
+		console.log('I HAVE A USER TOKEN:', token);
 	}
 
 	logout = () => {
