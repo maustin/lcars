@@ -1,4 +1,4 @@
-const END_POINT = `http://localhost:3001/species`;
+const END_POINT = `http://localhost:1701/api/v1/species`;
 
 class SpeciesModel {
 	static all = () => {

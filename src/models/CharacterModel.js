@@ -1,4 +1,4 @@
-const END_POINT = `http://localhost:3001/characters`;
+const END_POINT = `http://localhost:1701/api/v1/characters`;
 
 class CharacterModel {
 	static all = () => {
