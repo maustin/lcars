@@ -1,4 +1,7 @@
-const END_POINT = `http://localhost:3001/ranks`;
+import { API_URL } from '../utils/Constants';
+
+const END_POINT = `${API_URL}/ranks`;
+//const END_POINT = `http://localhost:3001/ranks`;
 
 class RankModel {
 	static all = () => {
