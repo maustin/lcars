@@ -1,4 +1,5 @@
-const END_POINT = `http://localhost:1701/api/v1/characters`;
+import { API_URL } from '../utils/Constants';
+const END_POINT = `${API_URL}/characters`;
 
 class CharacterModel {
 	static all = () => {

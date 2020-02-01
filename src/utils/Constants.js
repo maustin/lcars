@@ -1,0 +1,1 @@
+export const API_URL = process.env.NODE_ENV == 'production' ? 'https://lcars-api.maustin.io/v1' : 'http://localhost:1701/v1';

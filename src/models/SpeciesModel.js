@@ -1,4 +1,5 @@
-const END_POINT = `http://localhost:1701/api/v1/species`;
+import { API_URL } from '../utils/Constants';
+const END_POINT = `${API_URL}/species`;
 
 class SpeciesModel {
 	static all = () => {
